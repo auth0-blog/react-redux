@@ -14,8 +14,8 @@ export default function reducer(state = initialState, action) {
         ...state,
         searchTerm: searchTerm,
         food: searchTerm ? Food.filter(
-          food.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1)
-          : Food,
+          (food) => (food.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1)
+        ) : Food,
       };
     default:
       return state;
